@@ -1,0 +1,10 @@
+@media (min-width:768px) {
+  .container, .container-md, .container-sm {
+    width: 720px;
+  }
+}
+
+.bluebox {
+  /*width: 300;*/
+}
+

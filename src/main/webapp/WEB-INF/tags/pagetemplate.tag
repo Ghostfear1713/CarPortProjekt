@@ -6,75 +6,66 @@
 <%@attribute name="footer" fragment="true" %>
 
 <!DOCTYPE html>
-<html lang="da">
+<html  lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title><jsp:invoke fragment="header"/></title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/Navbar-Centered-Brand-icons.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/styles.css">
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-light navbar-expand-md py-3">
         <div class="container">
-            <a class="navbar-brand" href="index.jsp">
-                <img src="${pageContext.request.contextPath}/images/cphbusiness.png" width="400px;" class="img-fluid"/>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 1</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 2</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 3</a>
-                    <c:if test="${sessionScope.user == null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
-                    </c:if>
-                    <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
-                    </c:if>
-                </div>
+            <a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bezier">
+                        <path fill-rule="evenodd" d="M0 10.5A1.5 1.5 0 0 1 1.5 9h1A1.5 1.5 0 0 1 4 10.5v1A1.5 1.5 0 0 1 2.5 13h-1A1.5 1.5 0 0 1 0 11.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm10.5.5A1.5 1.5 0 0 1 13.5 9h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM6 4.5A1.5 1.5 0 0 1 7.5 3h1A1.5 1.5 0 0 1 10 4.5v1A1.5 1.5 0 0 1 8.5 7h-1A1.5 1.5 0 0 1 6 5.5v-1zM7.5 4a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"></path>
+                        <path d="M6 4.5H1.866a1 1 0 1 0 0 1h2.668A6.517 6.517 0 0 0 1.814 9H2.5c.123 0 .244.015.358.043a5.517 5.517 0 0 1 3.185-3.185A1.503 1.503 0 0 1 6 5.5v-1zm3.957 1.358A1.5 1.5 0 0 0 10 5.5v-1h4.134a1 1 0 1 1 0 1h-2.668a6.517 6.517 0 0 1 2.72 3.5H13.5c-.123 0-.243.015-.358.043a5.517 5.517 0 0 0-3.185-3.185z"></path>
+                    </svg><img src="assets/img/Screenshot%202023-05-04%20at%2022.55.13.png" width="56" height="56"></span><span></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#"></a></li>
+                    <li class="nav-item"><a class="nav-link text-start" href="#">Byg-selv carport</a></li>
+                </ul>
+
+                <a class="text-end ms-md-2" href="${pageContext.request.contextPath}/signup.jsp">Signup</a>
+
+                <c:if test="${sessionScope.user == null }">
+                    <a class="text-end ms-md-2" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+                </c:if>
+                <c:if test="${sessionScope.user != null }">
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
+                </c:if>
             </div>
+
         </div>
     </nav>
 </header>
 
-<div id="body" class="container mt-4" style="min-height: 400px;">
+<div class="container mt-4" style="min-height: 400px;">
     <h1><jsp:invoke fragment="header"/></h1>
-    <jsp:doBody/>
+<jsp:doBody/>
+
 </div>
 
 <!-- Footer -->
-<div class="container mt-3">
-    <hr/>
-    <div class="row mt-4">
-        <div class="col">
-            Nørgaardsvej 30<br/>
-            2800 Lyngby
-        </div>
-        <div class="col">
-            <jsp:invoke fragment="footer"/><br/>
-            <p>&copy; 2022 Cphbusiness</p>
-        </div>
-        <div class="col">
-            Datamatikeruddannelsen<br/>
-            2. semester efterår 2022
+<footer class="text-center py-4">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-lg-3">
+            <div class="col-lg-12">
+                <p class="text-muted my-2">Johannes Fog A/S - Firskovvej 202800 Lyngby - CVR-nr. 16314439</p>
+            </div>
         </div>
     </div>
-
-</div>
+</footer>
 
 </div>
 
 <!-- Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>

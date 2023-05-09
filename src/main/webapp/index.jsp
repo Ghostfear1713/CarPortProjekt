@@ -8,22 +8,22 @@
          Welcome to the frontpage
     </jsp:attribute>
 
-    <jsp:attribute name="footer">
-        Welcome to the frontpage
-    </jsp:attribute>
-
     <jsp:body>
 
-        <p>Startcode for 2nd semester </p>
+        <p>Velkommen til Fog Carport bestilling </p>
+
 
         <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
+            <p>Tak fordi du nu er logget på. Du kan påbegynde din bestiling af en
+                skræddersyet carport her: <a href="order">Bestil</a></p>
         </c:if>
 
         <c:if test="${sessionScope.user == null}">
             <p>You are not logged in yet. You can do it here: <a
                     href="login.jsp">Login</a></p>
         </c:if>
+
+
 
     </jsp:body>
 

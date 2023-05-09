@@ -31,11 +31,12 @@ public class Login extends HttpServlet
         response.sendRedirect("index.jsp");
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
-    {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
         response.setContentType("text/html");
         HttpSession session = request.getSession();
         session.setAttribute("user", null); // invalidating user object in session scope
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -44,7 +45,7 @@ public class Login extends HttpServlet
             User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
-            request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
         catch (DatabaseException e)
         {
