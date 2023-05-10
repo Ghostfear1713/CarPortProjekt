@@ -69,17 +69,35 @@
             cursor: pointer;
         }
 
-        #progress-bar div.active {
-            color: blue;
+        #progress-bar a.active {
+            color: white;
+            background-color: #0a53be;
         }
     </style>
 
     <div id="progress-bar">
-        <div id="step1" class="active"><a href="order1.jsp">Definer mål</a></div>
-        <div id="step2"><a href="order2.jsp">Ekstra tilføjelser</a></div>
-        <div id="step3"><a href="order3.jsp">Kontaktoplysninger</a></div>
-        <div id="step4"><a href="order4.jsp">Opsummering og detaljer</a></div>
-        <div id="step5"><a href="order5.jsp">Bestil tilbud</a></div>
+
+    <c:choose>
+
+        <c:when test = "${sessionScope.step == 1}">
+            <div id="step1"><a class="active" href="order1.jsp?step=1">Definer mål</a></div>
+            <div id="step2"><a href="order2.jsp?step=2">Ekstra tilføjelser</a></div>
+            <div id="step3"><a href="order3.jsp?step=3">Kontaktoplysninger</a></div>
+            <div id="step4"><a href="order4.jsp?step=4">Opsummering og detaljer</a></div>
+            <div id="step5"><a href="order5.jsp??step=5">Bestil tilbud</a></div>
+        </c:when>
+
+        <c:when test = "${sessionScope.step == 2}">
+            <div id="step1"><a href="order1.jsp">Definer mål</a></div>
+            <div id="step2"><a class="active" href="order2.jsp">Ekstra tilføjelser</a></div>
+            <div id="step3"><a href="order3.jsp">Kontaktoplysninger</a></div>
+            <div id="step4"><a href="order4.jsp">Opsummering og detaljer</a></div>
+            <div id="step5"><a href="order5.jsp">Bestil tilbud</a></div>
+        </c:when>
+
+
+    </c:choose>
+
     </div>
 
     <jsp:doBody/>

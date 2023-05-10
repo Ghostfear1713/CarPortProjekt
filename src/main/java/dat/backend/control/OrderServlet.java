@@ -9,7 +9,26 @@ import java.io.IOException;
 public class OrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    request.getRequestDispatcher("WEB-INF/order3.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+
+        int step = 1;
+        try {
+            step = Integer.parseInt(request.getParameter("step"));
+        } catch (NumberFormatException e)
+        {
+            step = 1;
+        }
+        session.setAttribute("step", step);
+
+        String page;
+        switch (step)
+        {
+            case 1: page = "order1.jsp"; break;
+            case 2: page = "order2.jsp"; break;
+            default: page = "order1.jsp"; break;
+        }
+
+        request.getRequestDispatcher("WEB-INF/" + page).forward(request, response);
 
     //TODO lav et tjek på om man er logget ind
     }
