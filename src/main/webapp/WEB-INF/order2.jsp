@@ -16,56 +16,55 @@
     <p>Redskabsrum</p>
     <p>NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*</p>
 
-    <label for="redbredde">Redskabsrum bredde*</label><br>
-    <SELECT>
-      <OPTION Value="240">240 cm</OPTION>
-      <OPTION Value="270">270 cm</OPTION>
-      <OPTION Value="300">300 cm</OPTION>
-      <OPTION Value="330">330 cm</OPTION>
-      <OPTION Value="360">360 cm</OPTION>
-      <OPTION Value="390">390 cm</OPTION>
-      <OPTION Value="420">420 cm</OPTION>
-      <OPTION Value="450">450 cm</OPTION>
-      <OPTION Value="480">480 cm</OPTION>
-      <OPTION Value="510">510 cm</OPTION>
-      <OPTION Value="540">540 cm</OPTION>
-      <OPTION Value="570">570 cm</OPTION>
-      <OPTION Value="600">600 cm</OPTION>
-      <OPTION Value="630">630 cm</OPTION>
-      <OPTION Value="660">660 cm</OPTION>
-      <OPTION Value="690">690 cm</OPTION>
-      <OPTION Value="720">720 cm</OPTION>
-    </SELECT><br><br>
+    <form method="POST">
+      <input type="hidden" name="step" value="2">
+        <%--@declare id="redbredde"--%><%--@declare id="redlængde"--%><label for="redbredde">Redskabsrum bredde*</label><br>
+      <SELECT name="redbredde">
+        <OPTION Value="240">240 cm</OPTION>
+        <OPTION Value="270">270 cm</OPTION>
+        <OPTION Value="300">300 cm</OPTION>
+        <OPTION Value="330">330 cm</OPTION>
+        <OPTION Value="360">360 cm</OPTION>
+        <OPTION Value="390">390 cm</OPTION>
+        <OPTION Value="420">420 cm</OPTION>
+        <OPTION Value="450">450 cm</OPTION>
+        <OPTION Value="480">480 cm</OPTION>
+        <OPTION Value="510">510 cm</OPTION>
+        <OPTION Value="540">540 cm</OPTION>
+        <OPTION Value="570">570 cm</OPTION>
+        <OPTION Value="600">600 cm</OPTION>
+        <OPTION Value="630">630 cm</OPTION>
+        <OPTION Value="660">660 cm</OPTION>
+        <OPTION Value="690">690 cm</OPTION>
+        <OPTION Value="720">720 cm</OPTION>
+      </SELECT><br><br>
 
-    <label for="redlængde">Redskabsrum længde*</label><br>
-    <SELECT>
-      <OPTION Value="240">240 cm</OPTION>
-      <OPTION Value="270">270 cm</OPTION>
-      <OPTION Value="300">300 cm</OPTION>
-      <OPTION Value="330">330 cm</OPTION>
-      <OPTION Value="360">360 cm</OPTION>
-      <OPTION Value="390">390 cm</OPTION>
-      <OPTION Value="420">420 cm</OPTION>
-      <OPTION Value="450">450 cm</OPTION>
-      <OPTION Value="480">480 cm</OPTION>
-      <OPTION Value="510">510 cm</OPTION>
-      <OPTION Value="540">540 cm</OPTION>
-      <OPTION Value="570">570 cm</OPTION>
-      <OPTION Value="600">600 cm</OPTION>
-      <OPTION Value="630">630 cm</OPTION>
-      <OPTION Value="660">660 cm</OPTION>
-      <OPTION Value="690">690 cm</OPTION>
-    </SELECT><br><br>
+      <label for="redlængde">Redskabsrum længde*</label><br>
+      <SELECT name="redlængde">
+        <OPTION Value="240">240 cm</OPTION>
+        <OPTION Value="270">270 cm</OPTION>
+        <OPTION Value="300">300 cm</OPTION>
+        <OPTION Value="330">330 cm</OPTION>
+        <OPTION Value="360">360 cm</OPTION>
+        <OPTION Value="390">390 cm</OPTION>
+        <OPTION Value="420">420 cm</OPTION>
+        <OPTION Value="450">450 cm</OPTION>
+        <OPTION Value="480">480 cm</OPTION>
+        <OPTION Value="510">510 cm</OPTION>
+        <OPTION Value="540">540 cm</OPTION>
+        <OPTION Value="570">570 cm</OPTION>
+        <OPTION Value="600">600 cm</OPTION>
+        <OPTION Value="630">630 cm</OPTION>
+        <OPTION Value="660">660 cm</OPTION>
+        <OPTION Value="690">690 cm</OPTION>
+      </SELECT><br><br>
 
-    <form action="/action_page.php" id="beware">
+      <textarea name="comment" form="beware">Evt bemærkninger/særlige ønsker</textarea><br><br>
 
+      <button type="submit" formaction="order?step=1">Tilbage</button>
+      <button type="submit" formaction="order?step=3">Næste</button>
     </form>
 
-    <textarea name="comment" form="beware">Evt bemærkninger/særlige ønsker</textarea><br><br>
-
-    <button type="button" onclick="prevStep()">Tilbage</button>
-    <button type="button" onclick="nextStep()">Næste</button>
-    </form>
 
   </jsp:body>
 

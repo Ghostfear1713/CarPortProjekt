@@ -13,7 +13,8 @@
     <!-- Step 3: Kontaktoplysninger -->
     <p>Kontaktoplysninger</p>
     <h2>Skriv dine kontaktoplysninger her</h2>
-    <form>
+    <form method="POST">
+    <input type="hidden" name="step" value="2">
     <label for="name">Navn:</label><br>
     <input type="text" id="name" placeholder="Fornavn og efternavn" name="name"><br><br>
 
@@ -36,7 +37,7 @@
     <INPUT TYPE="Checkbox" Name="kontakt" ID="C1" Value="kontakt">
     <LABEL FOR="C1">Fog må benytte de afgivne oplysninger til at kontakte mig i forbindelse med tilbud på QuickByg carport*</LABEL>
     <br><br>
-    <button type="button" onclick="prevStep(2)">Tilbage</button>
+    <button type="submit" formaction="order?step=2">Tilbage</button>
     <br><br>
 
 

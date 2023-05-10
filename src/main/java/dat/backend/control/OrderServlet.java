@@ -25,6 +25,8 @@ public class OrderServlet extends HttpServlet {
         {
             case 1: page = "order1.jsp"; break;
             case 2: page = "order2.jsp"; break;
+            case 3: page = "order3.jsp"; break;
+            case 4: page = "order4.jsp"; break;
             default: page = "order1.jsp"; break;
         }
 

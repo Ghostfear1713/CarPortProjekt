@@ -13,7 +13,7 @@
         <!-- Step 1: Definer mål -->
         <p>Definer mål</p>
         <h2>Vælg dine mål for din carport</h2>
-        <form action="order2.jsp" method="POST">
+        <form action="order?step=2" method="POST">
             <%--@declare id="bredde"--%><%--@declare id="længde"--%><%--@declare id="tag"--%><label for="bredde">Carport bredde*</label><br>
             <SELECT name="bredde">
                 <OPTION Value="240">240 cm</OPTION>
