@@ -9,7 +9,7 @@ import java.io.IOException;
 public class OrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    request.getRequestDispatcher("WEB-INF/order1.jsp").forward(request, response);
+    request.getRequestDispatcher("WEB-INF/order3.jsp").forward(request, response);
 
     //TODO lav et tjek på om man er logget ind
     }
