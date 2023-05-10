@@ -16,7 +16,7 @@
     <p>Redskabsrum</p>
     <p>NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*</p>
 
-    <label for="længde">Redskabsrum bredde*</label><br>
+    <label for="redbredde">Redskabsrum bredde*</label><br>
     <SELECT>
       <OPTION Value="240">240 cm</OPTION>
       <OPTION Value="270">270 cm</OPTION>
@@ -37,7 +37,7 @@
       <OPTION Value="720">720 cm</OPTION>
     </SELECT><br><br>
 
-    <label for="længde">Redskabsrum længde*</label><br>
+    <label for="redlængde">Redskabsrum længde*</label><br>
     <SELECT>
       <OPTION Value="240">240 cm</OPTION>
       <OPTION Value="270">270 cm</OPTION>

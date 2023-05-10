@@ -13,10 +13,9 @@
         <!-- Step 1: Definer mål -->
         <p>Definer mål</p>
         <h2>Vælg dine mål for din carport</h2>
-        <form>
-            <%--@declare id="længde"--%><%--@declare id="tag"--%><%--@declare id="bredde"--%>
-            <label for="bredde">Carport bredde*</label><br>
-            <SELECT>
+        <form action="order2.jsp" method="POST">
+            <%--@declare id="bredde"--%><%--@declare id="længde"--%><%--@declare id="tag"--%><label for="bredde">Carport bredde*</label><br>
+            <SELECT name="bredde">
                 <OPTION Value="240">240 cm</OPTION>
                 <OPTION Value="270">270 cm</OPTION>
                 <OPTION Value="300">300 cm</OPTION>
@@ -33,8 +32,8 @@
             </SELECT>
             <br><br>
 
-            <label for="længde">Carport længde*</label><br>
-            <SELECT>
+                <label for="længde">Carport længde*</label><br>
+                <SELECT name="længde">
                 <OPTION Value="240">240 cm</OPTION>
                 <OPTION Value="270">270 cm</OPTION>
                 <OPTION Value="300">300 cm</OPTION>
@@ -57,18 +56,14 @@
             </SELECT>
             <br><br>
 
-            <label for="tag">Carport trapeztag*</label><br>
-            <SELECT>
-                <OPTION Value="u-tagplader">Uden tagplader</OPTION>
-                <OPTION Value="plast-plader">Plasttrapezplader</OPTION>
-            </SELECT>
-            <br><br>
-            <button type="button" onclick="nextStep(2)">Næste</button>
+                <label for="tag">Carport trapeztag*</label><br>
+                <select name="tag">
+                    <option value="u-tagplader">Uden tagplader</option>
+                    <option value="plast-plader">Plasttrapezplader</option>
+                </select>
+                <br><br>
+                <button type="submit">Næste</button>
         </form>
-
-
-
-
 
     </jsp:body>
 
