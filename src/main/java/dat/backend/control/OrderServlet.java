@@ -1,5 +1,7 @@
 package dat.backend.control;
 
+import dat.backend.model.entities.OrderForm;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -21,6 +23,52 @@ public class OrderServlet extends HttpServlet {
         }
         session.setAttribute("step", step);
 
+        getPageAndForward(request, response, step);
+
+        //TODO lav et tjek på om man er logget ind
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        OrderForm orderForm;
+        HttpSession session = request.getSession();
+        int step = Integer.parseInt(request.getParameter("step"));
+
+        if (session.getAttribute("orderForm") == null)
+        {
+            orderForm = new OrderForm();
+        } else {
+            orderForm = (OrderForm) session.getAttribute("orderForm");
+        }
+
+        switch (step) {
+            case 2:
+                int bredde = Integer.parseInt(request.getParameter("bredde"));
+                int længde = Integer.parseInt(request.getParameter("length"));
+                String tag = request.getParameter("tag");
+
+                //sætter vores variabler ind i objektet
+                orderForm.setBredde(bredde);
+                orderForm.setLængde(længde);
+                orderForm.setTag(tag);
+                break;
+   /*         case 3:
+                break;
+            case 4:
+                break;*/
+            default: break;
+        }
+
+        session.setAttribute("orderForm", orderForm);
+
+
+
+        session.setAttribute("step", step);
+        getPageAndForward(request, response, step);
+
+    }
+
+    private void getPageAndForward(HttpServletRequest request, HttpServletResponse response, int step) throws ServletException, IOException {
         String page;
         switch (step)
         {
@@ -32,12 +80,5 @@ public class OrderServlet extends HttpServlet {
         }
 
         request.getRequestDispatcher("WEB-INF/" + page).forward(request, response);
-
-    //TODO lav et tjek på om man er logget ind
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

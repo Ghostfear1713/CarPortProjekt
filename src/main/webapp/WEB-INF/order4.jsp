@@ -5,9 +5,6 @@
 <%@ page session="true" %>
 
 <t:pagetemplateorder>
-    <jsp:attribute name="header">
-         Welcome to the frontpage
-    </jsp:attribute>
 
   <jsp:body>
 

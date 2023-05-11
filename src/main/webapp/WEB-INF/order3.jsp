@@ -4,17 +4,14 @@
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 
 <t:pagetemplateorder>
-    <jsp:attribute name="header">
-         Welcome to the frontpage
-    </jsp:attribute>
 
   <jsp:body>
 
     <!-- Step 3: Kontaktoplysninger -->
     <p>Kontaktoplysninger</p>
     <h2>Skriv dine kontaktoplysninger her</h2>
-    <form method="POST">
-    <input type="hidden" name="step" value="2">
+    <form method="POST" action="order">
+    <input type="hidden" name="step" value="4">
     <label for="name">Navn:</label><br>
     <input type="text" id="name" placeholder="Fornavn og efternavn" name="name"><br><br>
 

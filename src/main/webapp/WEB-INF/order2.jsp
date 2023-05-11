@@ -4,9 +4,6 @@
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 
 <t:pagetemplateorder>
-    <jsp:attribute name="header">
-         Welcome to the frontpage
-    </jsp:attribute>
 
   <jsp:body>
 
@@ -16,8 +13,8 @@
     <p>Redskabsrum</p>
     <p>NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*</p>
 
-    <form method="POST">
-      <input type="hidden" name="step" value="2">
+    <form method="POST" action="order">
+      <input type="hidden" name="step" value="3">
         <%--@declare id="redbredde"--%><%--@declare id="redlængde"--%><label for="redbredde">Redskabsrum bredde*</label><br>
       <SELECT name="redbredde">
         <OPTION Value="240">240 cm</OPTION>
