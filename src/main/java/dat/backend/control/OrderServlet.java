@@ -11,6 +11,7 @@ public class OrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
+
         int step = 1;
         try {
             step = Integer.parseInt(request.getParameter("step"));
