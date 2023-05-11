@@ -6,11 +6,15 @@ public class OrderForm {
     private int længde;
     private int bredde;
     private String tag;
+    private int redlength;
+    private int redbredde;
 
-    public OrderForm(int længde, int bredde, String tag) {
+    public OrderForm(int længde, int bredde, String tag, int redlength, int redbredde) {
         this.længde = længde;
         this.bredde = bredde;
         this.tag = tag;
+        this.redlength = redlength;
+        this.redbredde = redbredde;
     }
 
     public OrderForm() {
@@ -38,5 +42,21 @@ public class OrderForm {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public int getRedlength() {
+        return redlength;
+    }
+
+    public void setRedlength(int redlength) {
+        this.redlength = redlength;
+    }
+
+    public int getRedbredde() {
+        return redbredde;
+    }
+
+    public void setRedbredde(int redbredde) {
+        this.redbredde = redbredde;
     }
 }

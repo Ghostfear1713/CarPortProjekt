@@ -8,60 +8,55 @@
   <jsp:body>
 
     <!-- Step 2: Ekstra tilføjelser -->
-    <p>Ekstra tilføjelser</p>
-    <h2>Vælg ekstra tilføjelser her</h2>
-    <p>Redskabsrum</p>
-    <p>NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12"><br>
+          <p class="lead">Ekstra tilføjelser</p>
+          <h2>Vælg ekstra tilføjelser her</h2>
+          <p>Redskabsrum</p>
+          <p class="text-muted">NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*</p>
 
-    <form method="POST" action="order">
-      <input type="hidden" name="step" value="3">
-        <%--@declare id="redbredde"--%><%--@declare id="redlængde"--%><label for="redbredde">Redskabsrum bredde*</label><br>
-      <SELECT name="redbredde">
-        <OPTION Value="240">240 cm</OPTION>
-        <OPTION Value="270">270 cm</OPTION>
-        <OPTION Value="300">300 cm</OPTION>
-        <OPTION Value="330">330 cm</OPTION>
-        <OPTION Value="360">360 cm</OPTION>
-        <OPTION Value="390">390 cm</OPTION>
-        <OPTION Value="420">420 cm</OPTION>
-        <OPTION Value="450">450 cm</OPTION>
-        <OPTION Value="480">480 cm</OPTION>
-        <OPTION Value="510">510 cm</OPTION>
-        <OPTION Value="540">540 cm</OPTION>
-        <OPTION Value="570">570 cm</OPTION>
-        <OPTION Value="600">600 cm</OPTION>
-        <OPTION Value="630">630 cm</OPTION>
-        <OPTION Value="660">660 cm</OPTION>
-        <OPTION Value="690">690 cm</OPTION>
-        <OPTION Value="720">720 cm</OPTION>
-      </SELECT><br><br>
+          <form method="POST" action="order">
+            <input type="hidden" name="step" value="3">
 
-      <label for="redlængde">Redskabsrum længde*</label><br>
-      <SELECT name="redlængde">
-        <OPTION Value="240">240 cm</OPTION>
-        <OPTION Value="270">270 cm</OPTION>
-        <OPTION Value="300">300 cm</OPTION>
-        <OPTION Value="330">330 cm</OPTION>
-        <OPTION Value="360">360 cm</OPTION>
-        <OPTION Value="390">390 cm</OPTION>
-        <OPTION Value="420">420 cm</OPTION>
-        <OPTION Value="450">450 cm</OPTION>
-        <OPTION Value="480">480 cm</OPTION>
-        <OPTION Value="510">510 cm</OPTION>
-        <OPTION Value="540">540 cm</OPTION>
-        <OPTION Value="570">570 cm</OPTION>
-        <OPTION Value="600">600 cm</OPTION>
-        <OPTION Value="630">630 cm</OPTION>
-        <OPTION Value="660">660 cm</OPTION>
-        <OPTION Value="690">690 cm</OPTION>
-      </SELECT><br><br>
+            <!-- jstl der gør at man gemmer carport bredden på sessionscope,
+                så man kan gå tilbage til den givne side og så er oplysningerne gemt -->
+            <div class="form-group">
+              <label for="redbredde">Redskabsrum bredden*</label>
+              <select class="form-control" name="redbredde">
+                <c:forEach var="redbredde" begin="240" end="720" step="30">
+                  <option
+                          <c:if test="${redbredde == sessionScope.orderForm.redbredde}">
+                            selected
+                          </c:if>
+                          value=${redbredde}>${redbredde} cm</option>
+                </c:forEach>
+              </select>
+            </div>
 
-      <textarea name="comment" form="beware">Evt bemærkninger/særlige ønsker</textarea><br><br>
+            <!-- jstl der gør at man gemmer carport længden på sessionscope,
+                  så man kan gå tilbage til den givne side og så er oplysningerne gemt -->
+            <div class="form-group">
+              <label for="redlength">Redskabsrum længde*</label>
+              <select class="form-control" name="redlength">
+                <c:forEach var="redlength" begin="240" end="690" step="30">
+                  <option
+                          <c:if test="${redlength == sessionScope.orderForm.redlength}">
+                            selected
+                          </c:if>
+                          value=${redlength}>${redlength} cm</option>
+                </c:forEach>
+              </select>
+            </div>
 
-      <button type="submit" formaction="order?step=1">Tilbage</button>
-      <button type="submit" formaction="order?step=3">Næste</button>
-    </form>
+            <!--<textarea name="comment" form="beware">Evt bemærkninger/særlige ønsker</textarea><br><br>-->
 
+            <button type="submit" class="btn btn-secondary" formaction="order?step=1">Tilbage</button>
+            <button type="submit" class="btn btn-primary" formaction="order?step=3">Næste</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
   </jsp:body>
 

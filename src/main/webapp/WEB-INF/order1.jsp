@@ -5,46 +5,50 @@
 
 <t:pagetemplateorder>
 
-    <jsp:body>
+<jsp:body>
 
+    <div class="container mt-5">
 
         <!-- Step 1: Definer mål -->
-        <p class="text">Definer mål</p>
-        <h2 class="center">Vælg dine mål for din carport</h2>
-        <form method="POST" class="center">
+        <p class="lead">Definer mål</p><br>
+        <h2 class="text mb-4">Vælg dine mål for din carport</h2>
+        <form method="POST" class="mx-auto">
 
-            <%--@declare id="bredde"--%><%--@declare id="længde"--%><%--@declare id="tag"--%><label for="bredde">Carport bredde*</label><br>
-            <SELECT name="bredde">
-                <OPTION Value="240">240 cm</OPTION>
-                <OPTION Value="270">270 cm</OPTION>
-                <OPTION Value="300">300 cm</OPTION>
-                <OPTION Value="330">330 cm</OPTION>
-                <OPTION Value="360">360 cm</OPTION>
-                <OPTION Value="390">390 cm</OPTION>
-                <OPTION Value="420">420 cm</OPTION>
-                <OPTION Value="450">450 cm</OPTION>
-                <OPTION Value="480">480 cm</OPTION>
-                <OPTION Value="510">510 cm</OPTION>
-                <OPTION Value="540">540 cm</OPTION>
-                <OPTION Value="570">570 cm</OPTION>
-                <OPTION Value="600">600 cm</OPTION>
-            </SELECT>
-            <br><br>
+                <%--@declare id="bredde"--%><%--@declare id="længde"--%><%--@declare id="tag"--%>
 
-                <label for="længde">Carport længde*</label><br>
-                <SELECT name="length">
-                    <c:forEach var="length" begin="240" end="780" step="30">
-                         <OPTION
-                                 <c:if test="${length == sessionScope.orderForm.længde}">
-                                     selected
-                                 </c:if>
-                                 value=${length}>${length} cm</OPTION>
+            <!-- jstl der gør at man gemmer carport bredden på sessionscope,
+            så man kan gå tilbage til den givne side og så er oplysningerne gemt -->
+            <div class="form-group">
+                <label for="bredde">Carport bredden*</label>
+                <select class="form-control" name="bredde">
+                    <c:forEach var="bredde" begin="240" end="600" step="30">
+                        <option
+                                <c:if test="${bredde == sessionScope.orderForm.bredde}">
+                                    selected
+                                </c:if>
+                                value=${bredde}>${bredde} cm</option>
                     </c:forEach>
-            </SELECT>
-            <br><br>
+                </select>
+            </div>
 
-                <label for="tag">Carport trapeztag*</label><br>
-                <select name="tag">
+            <!-- jstl der gør at man gemmer carport længden på sessionscope,
+            så man kan gå tilbage til den givne side og så er oplysningerne gemt -->
+            <div class="form-group">
+                <label for="længde">Carport længde*</label>
+                <select class="form-control" name="length">
+                    <c:forEach var="length" begin="240" end="780" step="30">
+                        <option
+                                <c:if test="${length == sessionScope.orderForm.længde}">
+                                    selected
+                                </c:if>
+                                value=${length}>${length} cm</option>
+                    </c:forEach>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tag">Carport trapeztag*</label>
+                <select class="form-control" name="tag">
                     <option value="u-tagplader">Uden tagplader</option>
                     <option
                             <c:if test="${sessionScope.orderForm.tag.equals('plast-plader')}">
@@ -52,13 +56,12 @@
                             </c:if>
                             value="plast-plader">Plasttrapezplader</option>
                 </select>
-                <br><br>
-                ${sessionScope.orderForm.tag}
+            </div>
 
-                <button formaction="order?step=2" type="submit">Næste</button>
-                <button formaction="order?step=3" type="submit">Til 3</button>
+            <div class="form-group">
+                <button class="btn btn-primary" formaction="order?step=2" type="submit">Næste</button>
+            </div>
         </form>
-
-    </jsp:body>
-
+    </div>
+</jsp:body>
 </t:pagetemplateorder>

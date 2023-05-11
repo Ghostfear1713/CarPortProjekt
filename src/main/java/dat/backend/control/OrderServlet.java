@@ -52,9 +52,15 @@ public class OrderServlet extends HttpServlet {
                 orderForm.setLængde(længde);
                 orderForm.setTag(tag);
                 break;
-   /*         case 3:
+            case 3:
+                int redbredde = Integer.parseInt(request.getParameter("redbredde"));
+                int redlength = Integer.parseInt(request.getParameter("redlength"));
+
+                //sætter vores variabler ind i objektet
+                orderForm.setRedbredde(redbredde);
+                orderForm.setRedlength(redlength);
                 break;
-            case 4:
+            /*case 4:
                 break;*/
             default: break;
         }

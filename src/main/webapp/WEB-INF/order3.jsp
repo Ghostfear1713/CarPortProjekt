@@ -8,36 +8,52 @@
   <jsp:body>
 
     <!-- Step 3: Kontaktoplysninger -->
-    <p>Kontaktoplysninger</p>
-    <h2>Skriv dine kontaktoplysninger her</h2>
-    <form method="POST" action="order">
-    <input type="hidden" name="step" value="4">
-    <label for="name">Navn:</label><br>
-    <input type="text" id="name" placeholder="Fornavn og efternavn" name="name"><br><br>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h2 class="text-center mb-4">Kontaktoplysninger</h2>
 
-    <label for="adresse">Adresse:</label><br>
-    <input type="adresse" id="adresse" placeholder="Adresse (vej + nummer)" name="email"><br><br>
+          <form method="POST" action="order">
+            <input type="hidden" name="step" value="4">
+            <div class="form-group">
 
-    <label for="postnummer">Postnummer:</label><br>
-    <input type="postnummer" id="postnummer" placeholder="Postnummer" name="postnummer"><br><br>
+              <label for="name">Navn:</label>
+              <input type="text" class="form-control" id="name" placeholder="Fornavn og efternavn" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="adresse">Adresse:</label>
+              <input type="adresse" class="form-control" id="adresse" placeholder="Adresse (vej + nummer)" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="postnummer">Postnummer:</label>
+              <input type="postnummer" class="form-control" id="postnummer" placeholder="Postnummer" name="postnummer" required>
+            </div>
+            <div class="form-group">
+              <label for="by">By:</label>
+              <input type="by" class="form-control" id="by" placeholder="Bynavn" name="by" required>
+            </div>
+            <div class="form-group">
+              <label for="tlf">Telefon:</label>
+              <input type="tlf" class="form-control" id="tlf" placeholder="Telefon nummer" name="tlf" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Din email adresse" name="email" required>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="kontakt" name="kontakt" value="kontakt" required>
+              <label class="form-check-label" for="kontakt">Fog må benytte de afgivne oplysninger til at kontakte mig i forbindelse med tilbud på QuickByg carport*</label>
+            </div>
+            <div class="text-center mt-4">
 
-    <label for="by">By:</label><br>
-    <input type="by" id="by" placeholder="Bynavn" name="by"><br><br>
+              <button type="submit" class="btn btn-primary mr-3" formaction="order?step=2">Tilbage</button>
+              <button type="submit" class="btn btn-primary" formaction="order?step=4">Næste</button>
 
-    <label for="tlf">Telefon:</label><br>
-    <input type="tlf" id="tlf" placeholder="Telefon nummer" name="tlf"><br><br>
-
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" placeholder="Din email adresse" name="email"><br><br>
-
-    <h5>Kontakt samtykke</h5>
-    <INPUT TYPE="Checkbox" Name="kontakt" ID="C1" Value="kontakt">
-    <LABEL FOR="C1">Fog må benytte de afgivne oplysninger til at kontakte mig i forbindelse med tilbud på QuickByg carport*</LABEL>
-    <br><br>
-    <button type="submit" formaction="order?step=2">Tilbage</button>
-    <button type="submit" formaction="order?step=4">Næste</button>
-    <br><br>
-
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
   </jsp:body>
 
