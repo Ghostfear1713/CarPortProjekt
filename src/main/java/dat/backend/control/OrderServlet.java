@@ -40,29 +40,37 @@ public class OrderServlet extends HttpServlet {
         } else {
             orderForm = (OrderForm) session.getAttribute("orderForm");
         }
+        try {
 
-        switch (step) {
-            case 2:
-                int bredde = Integer.parseInt(request.getParameter("bredde"));
-                int længde = Integer.parseInt(request.getParameter("length"));
-                String tag = request.getParameter("tag");
 
-                //sætter vores variabler ind i objektet
-                orderForm.setBredde(bredde);
-                orderForm.setLængde(længde);
-                orderForm.setTag(tag);
-                break;
-            case 3:
-                int redbredde = Integer.parseInt(request.getParameter("redbredde"));
-                int redlength = Integer.parseInt(request.getParameter("redlength"));
+            switch (step) {
+                case 2:
+                    int bredde = Integer.parseInt(request.getParameter("bredde"));
+                    int længde = Integer.parseInt(request.getParameter("length"));
+                    String tag = request.getParameter("tag");
 
-                //sætter vores variabler ind i objektet
-                orderForm.setRedbredde(redbredde);
-                orderForm.setRedlength(redlength);
-                break;
+                    //sætter vores variabler ind i objektet
+                    orderForm.setBredde(bredde);
+                    orderForm.setLængde(længde);
+                    orderForm.setTag(tag);
+
+
+                    break;
+                case 3:
+                    int redbredde = Integer.parseInt(request.getParameter("redbredde"));
+                    int redlength = Integer.parseInt(request.getParameter("redlength"));
+
+                    //sætter vores variabler ind i objektet
+                    orderForm.setRedbredde(redbredde);
+                    orderForm.setRedlength(redlength);
+                    break;
             /*case 4:
                 break;*/
-            default: break;
+                default:
+                    break;
+            }
+        } catch (NumberFormatException e) {
+            doGet(request, response);
         }
 
         session.setAttribute("orderForm", orderForm);

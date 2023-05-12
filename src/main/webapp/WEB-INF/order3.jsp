@@ -46,7 +46,7 @@
             </div>
             <div class="text-center mt-4">
 
-              <button type="submit" class="btn btn-primary mr-3" formaction="order?step=2">Tilbage</button>
+              <button type="submit" class="btn btn-secondary" formaction="order?step=2">Tilbage</button>
               <button type="submit" class="btn btn-primary" formaction="order?step=4">Næste</button>
 
             </div>

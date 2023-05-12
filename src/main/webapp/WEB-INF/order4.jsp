@@ -9,29 +9,14 @@
 
   <jsp:body>
 
-      <%
-          //henter sessionscope
-          request.getSession();
-          OrderForm orderForm = (OrderForm) session.getAttribute("orderForm");
 
-          //er der noget i OrderForm?
-          if (orderForm != null) {
-
-              //der skal arbejdes videre på den, ved ikke hvorfor den
-              // kommer med errorbesked, tror ikke det bliver gemt rigtigt ned :(
-
-              //eftertanke: det her skal skrives ind i orderservlet
-              // på den ene eller anden måde for at opretholde mvc struktur
-      %>
       <h1>Opsummering og detaljer af din ordre:</h1>
-      <p>Længde: <%= orderForm.getLængde() %></p>
-      <p>Bredde: <%= orderForm.getBredde() %></p>
-      <p>Tag: <%= orderForm.getTag() %></p>
-      <p>Redskabsrum Længde: <%= orderForm.getRedlength() %></p>
-      <p>Redskabsrum Bredde: <%= orderForm.getRedbredde() %></p>
-      <%
-          }
-      %>
+      <p>Længde: ${sessionScope.orderForm.længde}</p>
+      <p>Bredde: ${sessionScope.orderForm.bredde}</p>
+      <p>Tag: ${sessionScope.orderForm.tag}</p>
+      <p>Redskabsrum Længde: ${sessionScope.orderForm.redlength}</p>
+      <p>Redskabsrum Bredde: ${sessionScope.orderForm.redbredde}</p>
+
 
 
   </jsp:body>
