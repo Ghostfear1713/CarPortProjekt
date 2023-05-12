@@ -6,7 +6,7 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-             Signup
+
     </jsp:attribute>
 
     <jsp:body>
@@ -22,16 +22,15 @@
                             <h2>Opret en konto</h2>
                             <p>Indtast dine oplysninger nedenfor for at oprette en konto</p>
                             <form class="text-center" method="post" action="signup">
-                                <div><small class="form-text text-start float-start">Navn*</small><small class="text-start"></small>
-                                    <p></p>
-                                    <input class="form-control" type="email" name="username" placeholder="Indtast dit navn"><small class="form-text text-start float-start">Email*</small>
+                                <div>
+                                    <small class="form-text text-start float-start">Username*</small><small class="text-start"></small>
+                                    <input class="form-control" type="text" name="username" placeholder="Indtast dit username"><small class="form-text text-start float-start">Password*</small>
                                 </div>
                                 <div class="mb-3"><small class="text-start"></small>
-                                    <p></p>
-                                    <input class="form-control" type="email" name="email" placeholder="Indtast din email"><small class="form-text text-start float-start">Kode*</small>
+                                    <input class="form-control" type="password" name="password" placeholder="Indtast dit password"><small class="form-text text-start float-start">ConfirmPassword*</small>
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="password" name="password" placeholder="Indtast din kode">
+                                    <input class="form-control" type="password" name="confirmpassword" placeholder="Gentag dit password"><small class="form-text text-start float-start"></small>
                                 </div>
                                 <div class="mb-3">
                                     <button class="btn btn-primary d-block w-100" type="submit">Opret konto</button>
