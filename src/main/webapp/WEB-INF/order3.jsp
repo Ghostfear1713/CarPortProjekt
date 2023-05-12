@@ -15,10 +15,10 @@
 
           <form method="POST" action="order">
             <input type="hidden" name="step" value="4">
-            <div class="form-group">
 
+            <div class="form-group">
               <label for="name">Navn:</label>
-              <input type="text" class="form-control" id="name" placeholder="Fornavn og efternavn" name="name" required>
+              <input type="text" class="form-control" id="name" placeholder="Fornavn og efternavn" name="name" value="${sessionScope.orderForm.name}" required>
             </div>
             <div class="form-group">
               <label for="adresse">Adresse:</label>
