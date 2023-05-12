@@ -16,7 +16,7 @@ public class OrderForm {
     private String email;
 
 
-    public OrderForm(int længde, int bredde, String tag, int redlength, int redbredde, String navn, String adresse, int postnummer,String by,String telefonnummer,String email) {
+    public OrderForm(int længde, int bredde, String tag, int redlength, int redbredde, String navn, String adresse, int postnummer, String by, String telefonnummer, String email) {
         this.længde = længde;
         this.bredde = bredde;
         this.tag = tag;

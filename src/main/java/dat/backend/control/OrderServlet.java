@@ -53,8 +53,6 @@ public class OrderServlet extends HttpServlet {
                     orderForm.setBredde(bredde);
                     orderForm.setLængde(længde);
                     orderForm.setTag(tag);
-
-
                     break;
                 case 3:
                     int redbredde = Integer.parseInt(request.getParameter("redbredde"));
