@@ -53,8 +53,6 @@ public class OrderServlet extends HttpServlet {
                     orderForm.setBredde(bredde);
                     orderForm.setLængde(længde);
                     orderForm.setTag(tag);
-
-
                     break;
                 case 3:
                     int redbredde = Integer.parseInt(request.getParameter("redbredde"));
@@ -64,8 +62,22 @@ public class OrderServlet extends HttpServlet {
                     orderForm.setRedbredde(redbredde);
                     orderForm.setRedlength(redlength);
                     break;
-            /*case 4:
-                break;*/
+                case 4:
+                    String navn = request.getParameter("navn");
+                    String adresse = request.getParameter("adresse");
+                    int postnummer = Integer.parseInt(request.getParameter("postnummer"));
+                    String by = request.getParameter("by");
+                    String telefonnummer = request.getParameter("telefonnummer");
+                    String email = request.getParameter("email");
+
+                    //sætter vores variabler ind i objektet
+                    orderForm.setNavn(navn);
+                    orderForm.setAdresse(adresse);
+                    orderForm.setPostnummer(postnummer);
+                    orderForm.setBy(by);
+                    orderForm.setTelefonnummer(telefonnummer);
+                    orderForm.setEmail(email);
+                    break;
                 default:
                     break;
             }
