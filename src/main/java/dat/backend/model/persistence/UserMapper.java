@@ -98,33 +98,6 @@ class UserMapper
 
     //Lav en ny bruger og tjek om der er eksisterende brugere
 
-    static ArrayList <User> getAllUsers (ConnectionPool connectionPool){
-        ArrayList<User> UserList = new ArrayList<>();
-        try {
-
-            Connection connection = connectionPool.getConnection();
-            String SQL = "SELECT * FROM user";
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(SQL);
-
-            while(resultSet.next()){
-
-                String name = resultSet.getString("username");
-                String password = resultSet.getString("password");
-                String role = resultSet.getString("role");
-
-                User user = new User(name, password, role);
-                UserList.add(user);
-
-            }
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return UserList;
-
-}
-
 
 
 
