@@ -10,7 +10,7 @@
 
     <title>Ordrebekræftelse</title>
 
-    <p style="text-align: center">Tak for din bestilling! Du vil høre fra os straks.</p>
+    <p style="text-align: center">Tak for din bestilling! Du vil høre fra os straks .</p>
 
     </jsp:body>
 </t:pagetemplateorder>
