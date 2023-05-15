@@ -1,29 +1,36 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate>
+
     <jsp:attribute name="header">
-         Welcome to the frontpage
+         Velkommen til Fog Carport
     </jsp:attribute>
 
     <jsp:body>
 
-        <p>Velkommen til Fog Carport bestilling </p>
+        <section class="py-4 py-xl-5">
+        <div class="card mb-5">
+        <div class="card-body d-flex flex-column align-items-center">
+        <div class="card-header d-flex flex-column align-items-center">
+        <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+        </svg></div>
 
 
         <c:if test="${sessionScope.user != null}">
-            <p>Tak fordi du nu er logget på. Du kan påbegynde din bestiling af en
-                skræddersyet carport her: <a href="order">Bestil</a></p>
+            <br> <p>Tak - du nu er logget på og kan straks påbegynde din bestilling af en
+            skræddersyet carport</p> <p>Tryk <a href="order">her</a> for at påbegynde din bestilling</p>
         </c:if>
 
         <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
+            <p>Klik <a href="login.jsp">her</a> for at logge ind</p><br>
+
+            <p>Problemer med at logge på? Opret bruger <a href="signup.jsp">her</a><p>
         </c:if>
-
-
 
     </jsp:body>
 
