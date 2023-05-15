@@ -14,9 +14,10 @@ public class OrderForm {
     private String by;
     private String telefonnummer;
     private String email;
+    private int ordreID;
 
 
-    public OrderForm(int længde, int bredde, String tag, int redlength, int redbredde, String navn, String adresse, int postnummer, String by, String telefonnummer, String email) {
+    public OrderForm(int længde, int bredde, String tag, int redlength, int redbredde, String navn, String adresse, int postnummer, String by, String telefonnummer, String email, int orderID) {
         this.længde = længde;
         this.bredde = bredde;
         this.tag = tag;
@@ -28,6 +29,7 @@ public class OrderForm {
         this.by = by;
         this.telefonnummer = telefonnummer;
         this.email = email;
+        this.ordreID = orderID;
     }
 
     public OrderForm() {
