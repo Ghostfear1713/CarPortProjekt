@@ -1,5 +1,6 @@
 package dat.backend.model.persistence;
 
+import dat.backend.model.entities.OrderForm;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 
@@ -94,6 +95,29 @@ class UserMapper
         return userList;
     }
 
+    public static void updateUserInfo(User user, OrderForm orderForm, ConnectionPool connectionPool) throws DatabaseException
+    {
+        Logger.getLogger("web").log(Level.INFO, "");
+        String sql = "update user SET name = ?, phone_number = ?, address=? WHERE username = ?";
+        try (Connection connection = connectionPool.getConnection())
+        {
+            try (PreparedStatement ps = connection.prepareStatement(sql))
+            {
+                ps.setString(1, orderForm.getNavn());
+                ps.setString(2, orderForm.getTelefonnummer());
+                ps.setString(3, user.getUsername());
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected != 1)
+                {
+                    throw new DatabaseException("The user with username = " + user.getUsername() + " could not be updated in db");
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            throw new DatabaseException(ex, "Could not insert username into database");
+        }
+    }
 
 
     //Lav en ny bruger og tjek om der er eksisterende brugere

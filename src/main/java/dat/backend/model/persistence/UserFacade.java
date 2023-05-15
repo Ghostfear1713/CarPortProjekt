@@ -1,5 +1,6 @@
 package dat.backend.model.persistence;
 
+import dat.backend.model.entities.OrderForm;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 
@@ -21,5 +22,8 @@ public class UserFacade
         return UserMapper.getAllUsers(connectionPool);
     }
 
+    public static void updateUserInfo(User user, OrderForm orderForm, ConnectionPool connectionPool) throws DatabaseException {
+        UserMapper.updateUserInfo(user, orderForm, connectionPool);
+    }
 }
 

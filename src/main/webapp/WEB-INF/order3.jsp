@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
               <label for="adresse">Adresse:</label>
-              <input type="adresse" class="form-control" id="adresse" placeholder="Adresse (vej + nummer)" name="email" required>
+              <input type="adresse" class="form-control" id="adresse" placeholder="Adresse (vej + nummer)" name="adresse" required>
             </div>
             <div class="form-group">
               <label for="postnummer">Postnummer:</label>
