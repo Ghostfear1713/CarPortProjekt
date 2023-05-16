@@ -7,6 +7,6 @@ import dat.backend.model.exceptions.DatabaseException;
 public class OrderFacade {
 
     public static void insertOrder(User user, OrderForm orderForm, ConnectionPool connectionPool) throws DatabaseException {
-        Ordermapper.insertOrder(user, orderForm, connectionPool);
+        OrderMapper.insertOrder(user, orderForm, connectionPool);
     }
 }

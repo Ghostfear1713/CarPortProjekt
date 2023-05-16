@@ -105,7 +105,8 @@ class UserMapper
             {
                 ps.setString(1, orderForm.getNavn());
                 ps.setString(2, orderForm.getTelefonnummer());
-                ps.setString(3, user.getUsername());
+                ps.setString(3, orderForm.getAdresse());
+                ps.setString(4, user.getUsername());
                 int rowsAffected = ps.executeUpdate();
                 if (rowsAffected != 1)
                 {
@@ -115,7 +116,8 @@ class UserMapper
         }
         catch (SQLException ex)
         {
-            throw new DatabaseException(ex, "Could not insert username into database");
+            //throw new DatabaseException(ex, ex.getStackTrace().toString());
+            //throw new DatabaseException(ex, "Could not insert username into database");
         }
     }
 
