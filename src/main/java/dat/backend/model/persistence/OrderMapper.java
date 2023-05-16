@@ -1,12 +1,12 @@
 package dat.backend.model.persistence;
 
+import com.mysql.cj.x.protobuf.MysqlxCrud;
 import dat.backend.model.entities.OrderForm;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,5 +35,33 @@ public class OrderMapper {
             throw new DatabaseException(ex, "Could not insert username into database");
 
         }
+    }
+    static ArrayList<OrderForm> getAllOrders(ConnectionPool connectionPool) throws DatabaseException {
+        ArrayList<OrderForm> orderList = new ArrayList<>();
+        try {
+
+            Connection connection = connectionPool.getConnection();
+
+            String sql = "SELECT * FROM orders";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String idOrders = rs.getString("id_orders");
+                String username = rs.getString("username");
+                String carlength = rs.getString("carlength");
+                String carwidth = rs.getString("carwidth");
+                String carroof = rs.getString("carroof");
+                String redwidth = rs.getString("redwidth");
+                String redlength = rs.getString("redlength");
+                int total_amount = rs.getInt("total_amount");
+
+
+                OrderForm order = new OrderForm(idOrders, username, carlength, carwidth, carroof, redwidth, redlength,total_amount);
+                orderList.add(order);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return orderList;
     }
 }

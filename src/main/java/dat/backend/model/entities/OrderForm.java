@@ -35,6 +35,9 @@ public class OrderForm {
     public OrderForm() {
     }
 
+    public OrderForm(String idOrders, String username, String carlength, String carwidth, String carroof, String redwidth, String redlength, int totalAmount) {
+    }
+
     public int getLængde() {
         return længde;
     }
