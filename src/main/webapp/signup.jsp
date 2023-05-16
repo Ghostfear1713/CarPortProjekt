@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -46,3 +47,34 @@
 
     </jsp:body>
 </t:pagetemplate>
+=======
+<%--
+  Created by IntelliJ IDEA.
+  User: bruger
+  Date: 08/05/2023
+  Time: 09.29
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+
+<!-- Setup for et login på en hjemmeside -->
+
+<h1>Velkommen til verdens bedste hjemmeside!</h1>
+<form action="signup" method="post">
+    Username: <input type="text" name= "username"> <br><br>
+    Password: <input type="password" name= "password"> <br><br>
+    Confirm Password: <input type="password" name= "confirmpassword"> <br><br>
+    <input class type="submit" value="Sign up"/>
+
+
+</form>
+
+</body>
+</html>
+>>>>>>> Stashed changes

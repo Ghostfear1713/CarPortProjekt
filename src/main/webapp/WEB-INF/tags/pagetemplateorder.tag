@@ -94,7 +94,7 @@
             <div id="step2"><a href="order?step=2">Ekstra tilføjelser</a></div>
             <div id="step3"><a href="order?step=3">Kontaktoplysninger</a></div>
             <div id="step4"><a href="order?step=4">Opsummering og detaljer</a></div>
-            <div id="step5"><a href="order?step=5">Bestil tilbud</a></div>
+            <div id="step5">Ordrebekræftelse</div>
         </c:when>
 
         <c:when test = "${sessionScope.step == 2}">
@@ -102,7 +102,7 @@
             <div id="step2"><a class="active" href="order?step=2">Ekstra tilføjelser</a></div>
             <div id="step3"><a href="order?step=3">Kontaktoplysninger</a></div>
             <div id="step4"><a href="order?step=4">Opsummering og detaljer</a></div>
-            <div id="step5"><a href="order?step=5">Bestil tilbud</a></div>
+            <div id="step5">Ordrebekræftelse</div>
         </c:when>
 
         <c:when test = "${sessionScope.step == 3}">
@@ -110,7 +110,7 @@
             <div id="step2"><a href="order?step=2">Ekstra tilføjelser</a></div>
             <div id="step3"><a class="active" href="order?step=3">Kontaktoplysninger</a></div>
             <div id="step4"><a href="order?step=4">Opsummering og detaljer</a></div>
-            <div id="step5"><a href="order?step=5">Bestil tilbud</a></div>
+            <div id="step5">Ordrebekræftelse</div>
         </c:when>
 
         <c:when test = "${sessionScope.step == 4}">
@@ -118,7 +118,7 @@
             <div id="step2"><a href="order?step=2">Ekstra tilføjelser</a></div>
             <div id="step3"><a href="order?step=3">Kontaktoplysninger</a></div>
             <div id="step4"><a class="active" href="order?step=4">Opsummering og detaljer</a></div>
-            <div id="step5"><a href="order?step=5">Bestil tilbud</a></div>
+            <div id="step5"><a href="order?step=5">Ordrebekræftelse</a></div>
         </c:when>
 
 
