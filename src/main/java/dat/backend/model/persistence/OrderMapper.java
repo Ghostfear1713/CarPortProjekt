@@ -7,6 +7,7 @@ import dat.backend.model.exceptions.DatabaseException;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -36,8 +37,8 @@ public class OrderMapper {
 
         }
     }
-    static ArrayList<OrderForm> getAllOrders(ConnectionPool connectionPool) throws DatabaseException {
-        ArrayList<OrderForm> orderList = new ArrayList<>();
+    static List<OrderForm> getAllOrders(ConnectionPool connectionPool) throws DatabaseException {
+        List<OrderForm> orderList = new ArrayList<>();
         try {
 
             Connection connection = connectionPool.getConnection();
