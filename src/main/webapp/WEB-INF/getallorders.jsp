@@ -1,68 +1,66 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: martinthuren
-  Date: 16/05/2023
-  Time: 23.39
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="java.sql.*" %>
-<%@ page import="dat.backend.model.persistence.ConnectionPool" %>
-<%@ page import="dat.backend.model.config.ApplicationStart" %>
-<%@ page import="dat.backend.model.entities.OrderForm" %>
-<%@ page import="java.util.List" %>
-<%@ page import="dat.backend.model.persistence.OrderFacade" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<html>
+<head>
+    <title>Orders</title>
+    <!-- Add Bootstrap CSS CDN link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align: center">View orders</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Username</th>
+            <th>Carport Længde</th>
+            <th>Carport Bredde</th>
+            <th>Carport Tag</th>
+            <th>Redskabsrum Bredde</th>
+            <th>Redskabsrum Længde</th>
+            <th>Total Pris</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
 
-<HTML>
-<HEAD>
-    <TITLE>VIEW ALL ORDERS</TITLE>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</HEAD>
-<body class="bg-light" bgcolor="#ffc0cb">
-<center><H1>VIEW ALL ORDERS </H1></center>
-    <%
-    // Get the connection pool object from ApplicationStart
-    ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
-    Connection connection = connectionPool.getConnection();
-    Statement statement = connection.createStatement();
-    ResultSet resultset = statement.executeQuery("SELECT * FROM orders");
+        <%
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://64.226.64.92:3306/carport", "dev", "3r!DE32*/fDe");
+                PreparedStatement stmt = conn.prepareStatement("SELECT * FROM orders");
+                ResultSet rs = stmt.executeQuery();
 
-    // Create an instance of OrderFacade
-    OrderFacade orderFacade = new OrderFacade();
+                while (rs.next()) {
+        %>
 
-    // Invoke the getAllOrders method to retrieve the data
-    List<OrderForm> orderList = orderFacade.getAllOrders(connectionPool);
+        <tr>
+            <td><%= rs.getInt("id_orders") %></td>
+            <td><%= rs.getString("username") %></td>
+            <td><%= rs.getString("carlength") %></td>
+            <td><%= rs.getInt("carwidth") %></td>
+            <td><%= rs.getString("carroof") %></td>
+            <td><%= rs.getString("redwidth") %></td>
+            <td><%= rs.getString("redlength") %></td>
+            <td><%= rs.getString("total_amount") %></td>
+            <td><%= rs.getString("status") %></td>
+        </tr>
 
-    // Check if the orderList is null or empty
-    if (orderList != null && !orderList.isEmpty()) {
-%>
+        <%
+                }
+                rs.close();
+                stmt.close();
+                conn.close();
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        %>
+        </tbody>
+    </table>
+</div>
 
-<table class="table table-striped" width="80%">
-    <%-- Iterate over the orderList and display the data in the table --%>
-    <%
-        for (OrderForm order : orderList) {
-    %>
-    <tr>
-        <td><%= order.getLængde() %></td>
-        <td><%= order.getBredde() %></td>
-        <td><%= order.getTag() %></td>
-        <td><%= order.getRedbredde() %></td>
-        <td><%= order.getRedlength() %></td>
-        <td><%= order.getAmount() %></td>
-        <td>
-            <form method="post" action="remove_order">
-                <input type="hidden" name="orderID" value="<%= order.getTag() %>">
-                <button type="submit" class="btn btn-danger">Remove</button>
-            </form>
-        </td>
-    </tr>
-    <% } %>
-</table>
-
-    <%
-    } else {
-        // Handle the case when orderList is null or empty
-        System.out.println("<p>No orders found.</p>");
-    }
-%>
-</HTML>
+<!-- Add Bootstrap JS CDN link -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
