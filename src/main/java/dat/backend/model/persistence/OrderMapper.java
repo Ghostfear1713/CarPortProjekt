@@ -40,7 +40,7 @@ public class OrderMapper {
         }
     }
 
-    public static List<OrderForm> getUserByOrder(ConnectionPool connectionPool) throws SQLException {
+    public static List<OrderForm> getOrderbyUser(ConnectionPool connectionPool) throws SQLException {
         List<OrderForm> orders = new ArrayList<>();
 
         try {
