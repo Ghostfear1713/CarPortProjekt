@@ -6,7 +6,10 @@ import dat.backend.model.exceptions.DatabaseException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -36,4 +39,43 @@ public class OrderMapper {
 
         }
     }
+
+    public static List<OrderForm> getUserByOrder(ConnectionPool connectionPool) throws SQLException {
+        List<OrderForm> orders = new ArrayList<>();
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = connectionPool.getConnection();
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM user");
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                OrderForm order = new OrderForm();
+                order.setLængde(rs.getInt("længde"));
+                order.setBredde(rs.getInt("bredde"));
+                order.setTag(rs.getString("tag"));
+                order.setRedlength(rs.getInt("redlength"));
+                order.setRedbredde(rs.getInt("redbredde"));
+                order.setNavn(rs.getString("navn"));
+                order.setAdresse(rs.getString("adresse"));
+                order.setPostnummer(rs.getInt("postnummer"));
+                order.setBy(rs.getString("by"));
+                order.setTelefonnummer(rs.getString("telefonnummer"));
+                order.setEmail(rs.getString("email"));
+                order.setAmount(rs.getDouble("amount"));
+
+                orders.add(order);
+            }
+
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return orders;
+    }
 }
+
+
