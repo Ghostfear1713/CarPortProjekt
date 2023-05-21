@@ -13,8 +13,8 @@ public class OrderFacade {
         OrderMapper.insertOrder(user, orderForm, connectionPool);
     }
 
-    public static List<OrderForm> getUserByOrder(ConnectionPool connectionPool) throws DatabaseException, SQLException {
-        OrderMapper.getUserByOrder(connectionPool);
+    public static List<OrderForm> getOrderByUser(ConnectionPool connectionPool) throws DatabaseException, SQLException {
+        OrderMapper.getOrderByUser(connectionPool);
         return null;
     }
 }

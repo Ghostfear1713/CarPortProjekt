@@ -40,13 +40,13 @@ public class OrderMapper {
         }
     }
 
-    public static List<OrderForm> getOrderbyUser(ConnectionPool connectionPool) throws SQLException {
+    public static List<OrderForm> getOrderByUser(ConnectionPool connectionPool) {
         List<OrderForm> orders = new ArrayList<>();
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = connectionPool.getConnection();
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM user");
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM carport.order WHERE user = (orhan)");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
