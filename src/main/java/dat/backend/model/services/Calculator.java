@@ -44,5 +44,7 @@ public class Calculator {
         itemList.addItem(posts);
     }
 
+    //TODO Skrive de resterende materialer ind og tilføje dem til constructoren
+
 
 }

@@ -1,6 +1,5 @@
 package dat.backend.model.persistence;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud;
 import dat.backend.model.entities.OrderForm;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
@@ -77,6 +76,7 @@ public class OrderMapper {
 
         return orders;
     }
+
     public static List<OrderForm> getOrderByUser(ConnectionPool connectionPool) {
         List<OrderForm> orders = new ArrayList<>();
 
@@ -112,5 +112,33 @@ public class OrderMapper {
         }
 
         return orders;
+    }
+
+    public static OrderForm getOrderById(int orderId, ConnectionPool connectionPool) {
+        String sql = "select * from orders where id_orders = ?";
+
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, orderId);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    OrderForm order = new OrderForm();
+                    order.setLængde(rs.getInt("carlength"));
+                    order.setBredde(rs.getInt("carwidth"));
+                    order.setTag(rs.getString("carroof"));
+                    order.setRedlength(rs.getInt("redlength"));
+                    order.setRedbredde(rs.getInt("redwidth"));
+
+                    return order;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -22,4 +22,10 @@ public class OrderFacade {
         OrderMapper.getOrderByUser(connectionPool);
         return null;
     }
+
+    public static OrderForm getOrderById(int orderId, ConnectionPool connectionPool)
+    {
+        return OrderMapper.getOrderById(orderId, connectionPool);
+    }
+
 }

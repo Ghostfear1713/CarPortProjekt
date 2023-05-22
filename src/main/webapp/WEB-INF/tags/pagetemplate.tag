@@ -33,6 +33,11 @@
 
                 <a class="text-end ms-md-2" href="${pageContext.request.contextPath}/signup.jsp">Signup</a>
 
+                <c:if test="${sessionScope.user != null }">
+                    <c:if test="${sessionScope.user.role == 'admin'}">
+                        <a class="text-end ms-md-2" href="${pageContext.request.contextPath}/getallorders">Se Ordrer</a>
+                    </c:if>
+                </c:if>
                 <c:if test="${sessionScope.user == null }">
                     <a class="text-end ms-md-2" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                 </c:if>

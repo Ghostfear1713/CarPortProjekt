@@ -38,7 +38,8 @@
         %>
 
         <tr>
-            <td><%= rs.getInt("id_orders") %></td>
+            <td><%= rs.getInt("id_orders") %>
+                <input type="hidden" name="id_orders" value='<%= rs.getInt("id_orders")%>'/> </td>
             <td><%= rs.getString("username") %></td>
             <td><%= rs.getString("carlength") %></td>
             <td><%= rs.getInt("carwidth") %></td>
