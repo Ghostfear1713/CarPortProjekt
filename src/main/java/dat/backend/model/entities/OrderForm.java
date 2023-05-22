@@ -15,9 +15,10 @@ public class OrderForm {
     private String telefonnummer;
     private String email;
     private double amount;
+    private String status;
 
 
-    public OrderForm(int længde, int bredde, String tag, int redlength, int redbredde, String navn, String adresse, int postnummer, String by, String telefonnummer, String email, double amount) {
+    public OrderForm(int længde, int bredde, String tag, int redlength, int redbredde, String navn, String adresse, int postnummer, String by, String telefonnummer, String email, double amount, String status) {
         this.længde = længde;
         this.bredde = bredde;
         this.tag = tag;
@@ -30,6 +31,7 @@ public class OrderForm {
         this.telefonnummer = telefonnummer;
         this.email = email;
         this.amount = amount;
+        this.status = status;
     }
 
     public OrderForm() {
@@ -129,5 +131,13 @@ public class OrderForm {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -95,10 +95,10 @@ class UserMapper
         return userList;
     }
 
-    public static void updateUserInfo(User user, OrderForm orderForm, ConnectionPool connectionPool) throws DatabaseException
+    static void updateUserInfo(User user, OrderForm orderForm, ConnectionPool connectionPool) throws DatabaseException
     {
         Logger.getLogger("web").log(Level.INFO, "");
-        String sql = "update user SET name = ?, phone_number = ?, address=? WHERE username = ?";
+        String sql = "update user SET name = ?, phone_number = ?, address=?, email=?, zip=?  WHERE username = ?";
         try (Connection connection = connectionPool.getConnection())
         {
             try (PreparedStatement ps = connection.prepareStatement(sql))
@@ -106,7 +106,9 @@ class UserMapper
                 ps.setString(1, orderForm.getNavn());
                 ps.setString(2, orderForm.getTelefonnummer());
                 ps.setString(3, orderForm.getAdresse());
-                ps.setString(4, user.getUsername());
+                ps.setString(4, orderForm.getEmail());
+                ps.setInt(5, orderForm.getPostnummer());
+                ps.setString(6, user.getUsername());
                 int rowsAffected = ps.executeUpdate();
                 if (rowsAffected != 1)
                 {
@@ -116,13 +118,39 @@ class UserMapper
         }
         catch (SQLException ex)
         {
-            //throw new DatabaseException(ex, ex.getStackTrace().toString());
-            //throw new DatabaseException(ex, "Could not insert username into database");
+            throw new DatabaseException(ex, "FEJL");
         }
     }
 
+    static User getUserByID(String username, ConnectionPool connectionPool) throws DatabaseException {
 
-    //Lav en ny bruger og tjek om der er eksisterende brugere
+    String sql ="SELECT * FROM user WHERE username = ?";
+    User user = null;
+
+    try(Connection connection = connectionPool.getConnection()){
+        try(PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, username);
+                try(ResultSet resultSet = ps.executeQuery()) {
+                if(resultSet.next()){
+                String usernameDB = resultSet.getString("username");
+                String phoneNumber = resultSet.getString("phone_number");
+                String name = resultSet.getString("name");
+                String address = resultSet.getString("address");
+                String email = resultSet.getString("email");
+
+                user = new User(usernameDB, phoneNumber, name, address, email);
+                }
+             }
+        }
+    } catch (SQLException e) {
+        throw new DatabaseException(e, "Fejl i databasen");
+    }
+
+    return user;
+    }
+
+
+
 
 
 
