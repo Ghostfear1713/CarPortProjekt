@@ -12,6 +12,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Date;
 
 @WebServlet(name = "OrderServlet", value = "/order")
 public class OrderServlet extends HttpServlet {
@@ -90,6 +91,8 @@ public class OrderServlet extends HttpServlet {
                     orderForm.setBy(by);
                     orderForm.setTelefonnummer(telefonnummer);
                     orderForm.setEmail(email);
+                    Date orderDate = new Date();
+                    request.setAttribute("orderdate", orderDate);
                     break;
                 case 5:
                     User user = (User)session.getAttribute("user");
