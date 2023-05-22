@@ -17,4 +17,9 @@ public class OrderFacade {
         OrderMapper.getAllOrders(connectionPool);
         return null;
     }
+
+    public static List<OrderForm> getOrderByUser(ConnectionPool connectionPool) throws DatabaseException, SQLException {
+        OrderMapper.getOrderByUser(connectionPool);
+        return null;
+    }
 }
