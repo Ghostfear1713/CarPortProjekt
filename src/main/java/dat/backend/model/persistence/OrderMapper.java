@@ -16,7 +16,7 @@ public class OrderMapper {
     public static void insertOrder(User user, OrderForm orderForm, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
 
-        String sql = "insert into orders (carlength, carwidth, carroof, redwidth, redlength, total_amount) values (?,?,?)";
+        String sql = "insert into orders (carlength, carwidth, carroof, redwidth, redlength, total_amount, username) values (?,?,?,?,?,?,?)";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, orderForm.getLængde());
@@ -25,6 +25,9 @@ public class OrderMapper {
                 ps.setInt(4, orderForm.getRedbredde());
                 ps.setInt(5, orderForm.getRedlength());
                 ps.setDouble(6, orderForm.getAmount());
+                ps.setString(7, user.getUsername());
+
+
                 int rowsAffected = ps.executeUpdate();
                 if (rowsAffected == 1) {
                     user = new User(user.getUsername(), user.getPassword(), user.getRole());

@@ -44,6 +44,7 @@ public class OrderServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         OrderForm orderForm;
         HttpSession session = request.getSession();
         int step = Integer.parseInt(request.getParameter("step"));
