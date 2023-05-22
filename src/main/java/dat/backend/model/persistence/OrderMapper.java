@@ -83,7 +83,7 @@ public class OrderMapper {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = connectionPool.getConnection();
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM carport.orders WHERE username = (orhan)");
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM carport.orders WHERE username = 'orhan'");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
