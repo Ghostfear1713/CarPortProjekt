@@ -26,6 +26,8 @@ public class Calculator {
         int quantity = 15;
         int rafterLength = width;
         Item beams = new Item("45x195mm.spærtræubh.", rafterLength, quantity, "stk", "Spær, monteres på rem");
+        Item beams2 = new Item("45x195 mm. spærtræ ubh.", rafterLength,quantity,"stk", "Stolper nedgraves 90 cm. i jord");
+        Item beams3 = new Item("45x195 mm. spærtræ ubh.",rafterLength,quantity,"stk","til beklædning af skur 1 på 2");
         itemList.addItem(beams);
     }
 
