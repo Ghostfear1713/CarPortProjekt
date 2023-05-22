@@ -9,6 +9,7 @@
 <body>
 <div class="container">
     <h1 style="text-align: center">View orders</h1>
+    <form method="post">
     <table class="table">
         <thead>
         <tr>
@@ -21,6 +22,7 @@
             <th>Redskabsrum Længde</th>
             <th>Total Pris</th>
             <th>Status</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -45,6 +47,7 @@
             <td><%= rs.getString("redlength") %></td>
             <td><%= rs.getString("total_amount") %></td>
             <td><%= rs.getString("status") %></td>
+            <td><button type="submit" formaction="viewitemlist">Vis stykliste</button></td>
         </tr>
 
         <%
@@ -58,6 +61,7 @@
         %>
         </tbody>
     </table>
+    </form>
 </div>
 
 <!-- Add Bootstrap JS CDN link -->
