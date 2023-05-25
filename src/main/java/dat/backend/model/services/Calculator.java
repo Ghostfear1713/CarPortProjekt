@@ -2,10 +2,15 @@ package dat.backend.model.services;
 
 import dat.backend.model.entities.Item;
 import dat.backend.model.entities.ItemList;
+import dat.backend.model.entities.Material;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Calculator {
 
     public ItemList itemList = new ItemList();
+    public  Map<Integer, Material> materialMap = new HashMap<>();
 
     public ItemList getItemList() {
         return itemList;
@@ -13,6 +18,8 @@ public class Calculator {
 
     public Calculator()
     {
+        // TODO: hent materialer og gem i et hashmap
+        // Fyld objektet op med alt det der er i databasen
     }
 
     public void calcCarport(int length, int width)
@@ -25,6 +32,7 @@ public class Calculator {
     private void calcRafters(int length, int width) {
         int quantity = 2 + (int) Math.round((length - 4.5 * 2) / (55.0 + 4.5));
         int rafterLength = width;
+        //TODO udfyld beams med alt det som vi gemmer i hashmappet
         Item beams = new Item("45x195mm.spærtræubh.", rafterLength, quantity, "stk", "Spær, monteres på rem", 12);
         itemList.addItem(beams);
     }
