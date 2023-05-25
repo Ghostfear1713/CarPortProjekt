@@ -40,6 +40,9 @@ public class Login extends HttpServlet
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+
+
+
         try
         {
             User user = UserFacade.login(username, password, connectionPool);

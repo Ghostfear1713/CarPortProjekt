@@ -22,8 +22,8 @@
 
 
         <c:if test="${sessionScope.user != null}">
-            <br> <p>Tak - du nu er logget på og kan straks påbegynde din bestilling af en
-            skræddersyet carport</p> <p>Tryk <a href="order">her</a> for at påbegynde din bestilling</p>
+            <br> <p>Tak - du nu er logget på som bruger: ${sessionScope.user.username}
+            Du kan straks påbegynde din bestilling af en skræddersyet carport</p> <p>Tryk <a href="order">her</a> for at påbegynde din bestilling</p>
         </c:if>
 
         <c:if test="${sessionScope.user == null}">

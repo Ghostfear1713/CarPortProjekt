@@ -20,6 +20,7 @@ public class Calculator {
         calcPosts(length, width);  // stolper
         calcBeams(length, width);  // Remme
         calcRafters(length, width);  // Spær
+        calcScrews(length, width); //skruer
     }
 
     private void calcRafters(int length, int width) {
@@ -34,7 +35,7 @@ public class Calculator {
     private void calcBeams(int length, int width) {
         int quantity = 2;
         int beamLength = length;
-        Item beams = new Item("45x195mm.spærtræubh.", beamLength, quantity, "stk", "Remme i sider, sadles ned i stolper");
+        Item beams = new Item("45x195mm.spærtræ ubh.", beamLength, quantity, "stk", "Remme i sider, sadles ned i stolper");
         itemList.addItem(beams);
     }
 
@@ -45,6 +46,15 @@ public class Calculator {
         Item posts = new Item("97x97mm.trykimp.Stolpe", postLength, quantity, "stk", "Stolper nedgraves 90cm i jord");
         itemList.addItem(posts);
     }
+
+    private void calcScrews(int length, int width) {
+        int quantity = 200;
+        int screwLength = 60;
+        Item screws = new Item("4,5x 60 mm. skruer 200 stk.",screwLength,quantity,"pakke","Til montering af stern&vandbrædt");
+        itemList.addItem(screws);
+    }
+
+
 
     //TODO Skrive de resterende materialer ind og tilføje dem til constructoren
 

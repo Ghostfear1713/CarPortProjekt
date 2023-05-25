@@ -33,12 +33,24 @@
         <div class="col-md-6">
             <br><h5 class="mb-4">Info: Evt carport detaljer indsættes her evt. via session scope? </h5>
             <ul class="list-unstyled">
+
+                <p>Du har bestilt følgende</p>
+
+                <li><strong>Længde:</strong> ${sessionScope.orderForm.længde} cm</li>
+                <li><strong>Bredde:</strong> ${sessionScope.orderForm.bredde} cm</li>
+                <li><strong>Tag:</strong> ${sessionScope.orderForm.tag}</li>
+
+                <li><strong>Redskabsrum Længde:</strong> ${sessionScope.orderForm.redlength} cm</li>
+                <li><strong>Redskabsrum Bredde:</strong> ${sessionScope.orderForm.redbredde} cm</li>
+
                 <li><strong>Navn:</strong> ${sessionScope.orderForm.navn}</li>
                 <li><strong>Adresse:</strong> ${sessionScope.orderForm.adresse}</li>
                 <li><strong>Postnummer:</strong> ${sessionScope.orderForm.postnummer}</li>
                 <li><strong>By:</strong> ${sessionScope.orderForm.by}</li>
                 <li><strong>Telefonnummer:</strong> ${sessionScope.orderForm.telefonnummer}</li>
                 <li><strong>Email:</strong> ${sessionScope.orderForm.email}</li>
+
+
             </ul>
         </div>
 
