@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -36,7 +35,7 @@
                                 <div class="mb-3">
                                     <button class="btn btn-primary d-block w-100" type="submit">Opret konto</button>
                                 </div>
-                                <p class="text-muted">Har du allerede en konto?&nbsp;<a href="#">Log ind</a></p>
+                                <p class="text-muted">Har du allerede en konto?&nbsp;<a href="login.jsp">Log ind</a></p>
                             </form>
                         </div>
                     </div>

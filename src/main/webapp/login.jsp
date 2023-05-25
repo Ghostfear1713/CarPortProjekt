@@ -46,7 +46,7 @@
                         </div>
                         <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Indtast dit Password"></div>
                         <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Login</button></div>
-                        <p class="text-muted">Opret en konto her!&nbsp;<a href="#">Opret konto</a></p>
+                        <p class="text-muted">Opret en konto her!&nbsp;<a href="signup.jsp">Opret konto</a></p>
                     </form>
                 </div>
             </div>
