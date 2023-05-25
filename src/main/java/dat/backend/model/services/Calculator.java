@@ -32,7 +32,7 @@ public class Calculator {
     private void calcBeams(int length, int width) {
         int quantity = 2;
         int beamLength = length;
-        Item beams = new Item("45x195mm.spærtræubh.", beamLength, quantity, "stk", "Remme i sider, sadles ned i stolper");
+        Item beams = new Item("45x195mm.spærtræubxh.", beamLength, quantity, "stk", "Remme i sider, sadles ned i stolper");
         itemList.addItem(beams);
     }
 
