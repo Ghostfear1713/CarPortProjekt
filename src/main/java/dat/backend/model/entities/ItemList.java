@@ -19,4 +19,14 @@ public class ItemList {
     {
         return itemList;
     }
+
+    public double getTotalPrice(){
+        double total = 0.0;
+        for (Item i : itemList) {
+            total = total + i.getPrice();
+        }
+        return total;
+    }
+
+
 }

@@ -39,7 +39,7 @@
 
         <tr>
             <td><%= rs.getInt("id_orders") %>
-                <input type="hidden" name="id_orders" value='<%= rs.getInt("id_orders")%>'/> </td>
+               </td>
             <td><%= rs.getString("username") %></td>
             <td><%= rs.getString("carlength") %></td>
             <td><%= rs.getInt("carwidth") %></td>
@@ -48,7 +48,7 @@
             <td><%= rs.getString("redlength") %></td>
             <td><%= rs.getString("total_amount") %></td>
             <td><%= rs.getString("status") %></td>
-            <td><button type="submit" formaction="viewitemlist">Vis stykliste</button></td>
+            <td><button type="submit" name="id" value='<%= rs.getInt("id_orders")%>' formaction="viewitemlist">Vis stykliste</button></td>
         </tr>
 
         <%

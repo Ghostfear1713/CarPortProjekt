@@ -23,11 +23,11 @@ public class ViewItemListServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int orderId = Integer.parseInt(request.getParameter("id_orders"));
+        int orderId = Integer.parseInt(request.getParameter("id"));
         OrderForm order = OrderFacade.getOrderById(orderId, connectionPool);
         Calculator calculator = new Calculator();
         calculator.calcCarport(order.getLængde(), order.getBredde());
-        request.setAttribute("itemList", calculator.getItemList().getItemList());
+        request.setAttribute("itemList", calculator.getItemList());
         request.getRequestDispatcher("WEB-INF/viewItemList.jsp").forward(request, response);
     }
 }

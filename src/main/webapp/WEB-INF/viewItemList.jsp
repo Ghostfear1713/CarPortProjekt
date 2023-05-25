@@ -22,7 +22,7 @@
                 <th>Beskrivelse</th>
             </tr>
             </thead>
-        <c:forEach var="item" items="${requestScope.itemList}">
+        <c:forEach var="item" items="${requestScope.itemList.itemList}">
             <tr>
                 <td>${item.materialDescription}</td>
                 <td>${item.length}</td>
@@ -32,6 +32,8 @@
             </tr>
 
         </c:forEach>
+
+            <p>Samlet pris: ${requestScope.itemList.totalPrice}</p>
 
         </table>
 

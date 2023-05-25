@@ -8,14 +8,16 @@ public class Item {
     private int quantity;
     private String unit;
     private String guidanceDescription;
+    private double price;
 
-    public Item(String materialDescription, int length, int quantity, String unit, String guidanceDescription) {
+    public Item(String materialDescription, int length, int quantity, String unit, String guidanceDescription, double price) {
         this.itemId = itemId;
         this.materialDescription = materialDescription;
         this.length = length;
         this.quantity = quantity;
         this.unit = unit;
         this.guidanceDescription = guidanceDescription;
+        this.price = price;
     }
 
     public Item(int itemId, String materialDescription, int length, int quantity, String unit, String guidanceDescription) {
@@ -77,5 +79,13 @@ public class Item {
 
     public void setGuidanceDescription(String guidanceDescription) {
         this.guidanceDescription = guidanceDescription;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
