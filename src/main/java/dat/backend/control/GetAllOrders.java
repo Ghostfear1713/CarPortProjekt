@@ -11,18 +11,13 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "GetAllOrdersServlet", value = "/getallorders")
-public class GetAllOrdersServlet extends HttpServlet {
-    private ConnectionPool connectionPool;
-    @Override
-    public void init() throws ServletException
-    {
-        this.connectionPool = ApplicationStart.getConnectionPool();
-    }
+@WebServlet(name = "GetAllOrders", value = "/getallorders")
+public class GetAllOrders extends HttpServlet {
+
+    private ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         try {
             List<OrderForm> orderList = OrderFacade.getAllOrders(connectionPool);
             request.setAttribute("orders", orderList);
@@ -32,7 +27,6 @@ public class GetAllOrdersServlet extends HttpServlet {
             throw new RuntimeException(e);
 
         }
-
     }
 
     @Override
