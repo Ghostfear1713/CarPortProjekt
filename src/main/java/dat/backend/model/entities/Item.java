@@ -11,7 +11,6 @@ public class Item {
     private double price;
 
     public Item(String materialDescription, int length, int quantity, String unit, String guidanceDescription, double price) {
-        this.itemId = itemId;
         this.materialDescription = materialDescription;
         this.length = length;
         this.quantity = quantity;
