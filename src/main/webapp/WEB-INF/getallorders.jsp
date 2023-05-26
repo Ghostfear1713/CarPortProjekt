@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
@@ -27,39 +28,22 @@
         </thead>
         <tbody>
 
-        <%
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://64.226.64.92:3306/carport", "dev", "3r!DE32*/fDe");
-                PreparedStatement stmt = conn.prepareStatement("SELECT * FROM orders");
-                ResultSet rs = stmt.executeQuery();
-
-                while (rs.next()) {
-        %>
+        <c:forEach var="item" items="${requestScope.orders}">
 
         <tr>
-            <td><%= rs.getInt("id_orders") %>
-               </td>
-            <td><%= rs.getString("username") %></td>
-            <td><%= rs.getString("carlength") %></td>
-            <td><%= rs.getInt("carwidth") %></td>
-            <td><%= rs.getString("carroof") %></td>
-            <td><%= rs.getString("redwidth") %></td>
-            <td><%= rs.getString("redlength") %></td>
-            <td><%= rs.getString("total_amount") %></td>
-            <td><%= rs.getString("status") %></td>
-            <td><button type="submit" name="id" value='<%= rs.getInt("id_orders")%>' formaction="viewitemlist">Vis stykliste</button></td>
+            <td>${item.id}</td>
+            <td>${item.navn}</td>
+            <td>${item.længde}</td>
+            <td>${item.bredde}</td>
+            <td>${item.tag}</td>
+            <td>${item.redbredde}</td>
+            <td>${item.redlength}</td>
+            <td>${item.amount}</td>
+            <td>${item.status}</td>
+            <td><button type="submit" name="id" value='${item.id}' formaction="viewitemlist">Vis stykliste</button></td>
         </tr>
+        </c:forEach>
 
-        <%
-                }
-                rs.close();
-                stmt.close();
-                conn.close();
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        %>
         </tbody>
     </table>
     </form>

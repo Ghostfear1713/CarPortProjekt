@@ -3,6 +3,7 @@ package dat.backend.model.entities;
 
 //laver et objekt, af order og fylder på af værdierne
 public class OrderForm {
+    private int id;
     private int længde;
     private int bredde;
     private String tag;
@@ -18,7 +19,8 @@ public class OrderForm {
     private String status;
 
 
-    public OrderForm(int længde, int bredde, String tag, int redlength, int redbredde, String navn, String adresse, int postnummer, String by, String telefonnummer, String email, double amount, String status) {
+    public OrderForm(int id, int længde, int bredde, String tag, int redlength, int redbredde, String navn, String adresse, int postnummer, String by, String telefonnummer, String email, double amount, String status) {
+        this.id = id;
         this.længde = længde;
         this.bredde = bredde;
         this.tag = tag;
@@ -38,6 +40,14 @@ public class OrderForm {
     }
 
     public OrderForm(String idOrders, String username, String carlength, String carwidth, String carroof, String redwidth, String redlength, int totalAmount) {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getLængde() {

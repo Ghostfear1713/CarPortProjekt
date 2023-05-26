@@ -14,13 +14,12 @@ public class OrderFacade {
     }
 
     public static List<OrderForm> getAllOrders(ConnectionPool connectionPool) throws DatabaseException, SQLException {
-        OrderMapper.getAllOrders(connectionPool);
-        return null;
+        return OrderMapper.getAllOrders(connectionPool);
+
     }
 
     public static List<OrderForm> getOrderByUser(ConnectionPool connectionPool) throws DatabaseException, SQLException {
-        OrderMapper.getOrderByUser(connectionPool);
-        return null;
+       return  OrderMapper.getOrderByUser(connectionPool);
     }
 
     public static OrderForm getOrderById(int orderId, ConnectionPool connectionPool)

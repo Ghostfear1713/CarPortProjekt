@@ -51,18 +51,13 @@ class OrderMapper {
 
             while (rs.next()) {
                 OrderForm order = new OrderForm();
-                order.setLængde(rs.getInt("længde"));
-                order.setBredde(rs.getInt("bredde"));
-                order.setTag(rs.getString("tag"));
+                order.setId(rs.getInt("id_orders"));
+                order.setLængde(rs.getInt("carlength"));
+                order.setBredde(rs.getInt("carwidth"));
+                order.setTag(rs.getString("carroof"));
                 order.setRedlength(rs.getInt("redlength"));
-                order.setRedbredde(rs.getInt("redbredde"));
-                order.setNavn(rs.getString("navn"));
-                order.setAdresse(rs.getString("adresse"));
-                order.setPostnummer(rs.getInt("postnummer"));
-                order.setBy(rs.getString("by"));
-                order.setTelefonnummer(rs.getString("telefonnummer"));
-                order.setEmail(rs.getString("email"));
-                order.setAmount(rs.getDouble("amount"));
+                order.setRedbredde(rs.getInt("redwidth"));
+
 
                 orders.add(order);
             }

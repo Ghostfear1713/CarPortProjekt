@@ -1,9 +1,12 @@
 package dat.backend.model.services;
 
+import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Item;
 import dat.backend.model.entities.ItemList;
 import dat.backend.model.entities.Material;
 import dat.backend.model.entities.OrderForm;
+import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.ItemFacade;
 import dat.backend.model.persistence.OrderFacade;
 
@@ -11,76 +14,56 @@ import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Calculator {
-
+public class Calculator{
     public ItemList itemList = new ItemList();
-    public Map<Integer, Material> materialMap = new HashMap<>();
-
-    //TODO Skal have Jons hjælp her
-
-//    while (resultSet.next()) {
-//        int id = resultSet.getInt("id");
-//        double price = resultSet.getDouble("price");
-//
-//        Material material = new Material(id, price);
-//
-//        // tilføjer vores material til mappet
-//        materialMap.put(id, material);
-//    }
-//
-//    int materialId = /* det id vi ønsker at finde */;
-//    Material material = materialMap.get(materialId);
-//    if (material != null) {
-//        double price = material.getPrice();
-//        System.out.println("Price of material with ID " + materialId + ": " + price);
-//    } else {
-//        System.out.println("Material not found.");
-//    }
-
-
-
+    public Map<Integer, Material> materialMap;
+    private static final int RAFTER_ID = 10;
+    private static final int BEAM_ID = 10;
+    private static final int POST_ID = 11;
 
     public ItemList getItemList() {
         return itemList;
     }
 
-    public Calculator()
-    {
-        // TODO: hent materialer og gem i et hashmap
-        // Fyld objektet op med alt det der er i databasen
+    public Calculator(ConnectionPool connectionPool) throws DatabaseException {
+        materialMap = ItemFacade.getAllItems(connectionPool);
     }
 
     public void calcCarport(int length, int width)
     {
-        calcPosts(length, width);  // stolper
-        calcBeams(length, width);  // Remme
-        calcRafters(length, width);  // Spær
+        itemList.addItem(calcPosts(length, width));  // stolper
+        itemList.addItem(calcBeams(length, width));  // Remme
+        itemList.addItem(calcRafters(length, width));  // Spær
     }
 
-    private void calcRafters(int length, int width) {
+    public Item calcRafters(int length, int width) {
         int quantity = 2 + (int) Math.round((length - 4.5 * 2) / (55.0 + 4.5));
         int rafterLength = width;
         //TODO udfyld beams med alt det som vi gemmer i hashmappet
-        Item beams = new Item("45x195mm.spærtræubh.", rafterLength, quantity, "stk", "Spær, monteres på rem", 12);
-        itemList.addItem(beams);
+
+        Item beams = new Item(materialMap.get(RAFTER_ID).getDescription(),
+                rafterLength, quantity,
+                materialMap.get(RAFTER_ID).getUnit(),
+                "Spær, monteres på rem",
+                materialMap.get(RAFTER_ID).getPricePerUnit() * quantity);
+        return beams;
     }
 
-    private void calcBeams(int length, int width) {
+    public Item calcBeams(int length, int width) {
         int quantity = 2;
         int beamLength = length;
-        Item beams = new Item("45x195mm.spærtræubxh.", beamLength, quantity, "stk", "Remme i sider, sadles ned i stolper", 15);
-        itemList.addItem(beams);
+        Item beams = new Item(materialMap.get(BEAM_ID).getDescription(), beamLength, quantity, "stk", "Remme i sider, sadles ned i stolper", 15);
+         return beams;
     }
 
-    private void calcPosts(int length, int width) {
+    public Item calcPosts(int length, int width) {
         // Rigtige beregninger skal laves her. Dvs, antal og længde
         int quantity = 2 * ( 2 + (int)(Math.floor((length - 130) / 310)));
         int postLength = 300;
-        Item posts = new Item("97x97mm.trykimp.Stolpe", postLength, quantity, "stk", "Stolper nedgraves 90cm i jord", 120);
-        itemList.addItem(posts);
+        Item posts = new Item(materialMap.get(POST_ID).getDescription(), postLength, quantity, "stk", "Stolper nedgraves 90cm i jord", 120);
+        return posts;
     }
 
-    //TODO Skrive de resterende materialer ind og tilføje dem til constructoren
 
 
 }
