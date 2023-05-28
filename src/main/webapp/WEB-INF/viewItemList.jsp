@@ -20,6 +20,7 @@
                 <th>Antal</th>
                 <th>Enhed</th>
                 <th>Beskrivelse</th>
+                <th>Pris</th>
             </tr>
             </thead>
         <c:forEach var="item" items="${requestScope.itemList.itemList}">
@@ -29,6 +30,7 @@
                 <td>${item.quantity}</td>
                 <td>${item.unit}</td>
                 <td>${item.guidanceDescription}</td>
+                <td>${item.price}</td>
             </tr>
 
         </c:forEach>
