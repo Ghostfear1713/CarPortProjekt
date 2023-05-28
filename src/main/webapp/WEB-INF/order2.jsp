@@ -24,30 +24,25 @@
             <div class="form-group">
               <label for="redbredde">Redskabsrum bredden*</label>
               <select class="form-control" name="redbredde">
+                <option value="0" <c:if test="0 == sessionScope.orderForm.redbredde">selected</c:if>>0 cm</option>
                 <c:forEach var="redbredde" begin="240" end="720" step="30">
-                  <option
-                          <c:if test="${redbredde == sessionScope.orderForm.redbredde}">
-                            selected
-                          </c:if>
-                          value=${redbredde}>${redbredde} cm</option>
+                  <option <c:if test="${redbredde == sessionScope.orderForm.redbredde}">selected</c:if>
+                          value="${redbredde}">${redbredde} cm</option>
                 </c:forEach>
               </select>
             </div>
 
-            <!-- jstl der gør at man gemmer carport længden på sessionscope,
-                  så man kan gå tilbage til den givne side og så er oplysningerne gemt -->
             <div class="form-group">
               <label for="redlength">Redskabsrum længde*</label>
               <select class="form-control" name="redlength">
+                <option value="0" <c:if test="0 == sessionScope.orderForm.redlength">selected</c:if>>0 cm</option>
                 <c:forEach var="redlength" begin="240" end="690" step="30">
-                  <option
-                          <c:if test="${redlength == sessionScope.orderForm.redlength}">
-                            selected
-                          </c:if>
-                          value=${redlength}>${redlength} cm</option>
+                  <option <c:if test="${redlength == sessionScope.orderForm.redlength}">selected</c:if>
+                          value="${redlength}">${redlength} cm</option>
                 </c:forEach>
               </select>
             </div>
+
 
             <!--<textarea name="comment" form="beware">Evt bemærkninger/særlige ønsker</textarea><br><br>-->
 

@@ -27,8 +27,8 @@
                     </svg><img src="assets/img/Screenshot%202023-05-04%20at%2022.55.13.png" width="56" height="56"></span><span></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="#"></a></li>
-                    <li class="nav-item"><a class="nav-link text-start" href="#">Byg-selv carport</a></li>
+                    <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/index.jsp"></a></li>
+                    <li class="nav-item"><a class="nav-link text-start" href="${pageContext.request.contextPath}/index.jsp">Byg-selv carport</a></li>
                 </ul>
 
                 <a class="text-end ms-md-2" href="${pageContext.request.contextPath}/signup.jsp">Signup</a>
