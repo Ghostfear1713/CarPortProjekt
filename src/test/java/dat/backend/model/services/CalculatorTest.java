@@ -50,10 +50,29 @@ class CalculatorTest {
 
     @Test
     void calcBeams() {
-
+        Item expectedBeams = new Item();
+        expectedBeams.setUnit("stk");
+        expectedBeams.setQuantity(3);
+        expectedBeams.setGuidanceDescription("Remme i sider, sadles ned i stolper");
+        expectedBeams.setItemId(1);
+        expectedBeams.setLength(780);
+        expectedBeams.setPrice(240.0);
+        expectedBeams.setMaterialDescription("45x195 mm. spærtræ ubh.");
+        Item actualBeams = calculator.calcBeams(780,600);
+        assertEquals(expectedBeams, actualBeams);
     }
 
     @Test
     void calcPosts() {
+        Item expectedPosts = new Item();
+        expectedPosts.setUnit("stk");
+        expectedPosts.setQuantity(8);
+        expectedPosts.setGuidanceDescription("Stolper nedgraves 90 cm. i jord");
+        expectedPosts.setItemId(0);
+        expectedPosts.setLength(300);
+        expectedPosts.setPrice(120.0);
+        expectedPosts.setMaterialDescription("97x97 mm. trykimp. stolpe");
+        Item actualPosts = calculator.calcPosts(780, 600);
+        assertEquals(expectedPosts, actualPosts);
     }
 }
