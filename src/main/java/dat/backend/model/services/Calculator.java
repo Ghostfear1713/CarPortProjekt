@@ -31,9 +31,9 @@ public class Calculator{
 
     public void calcCarport(int length, int width)
     {
-        itemList.addItem(calcPosts(length, width));  // stolper
-        itemList.addItem(calcBeams(length, width));  // Remme
         itemList.addItem(calcRafters(length, width));  // Spær
+        itemList.addItem(calcBeams(length, width));  // Remme
+        itemList.addItem(calcPosts(length, width));  // stolper
     }
 
     public Item calcRafters(int length, int width) {
@@ -46,13 +46,17 @@ public class Calculator{
                 materialMap.get(RAFTER_ID).getUnit(),
                 "Spær, monteres på rem",
                 materialMap.get(RAFTER_ID).getPricePerUnit() * quantity);
+        
         return beams;
     }
 
     public Item calcBeams(int length, int width) {
         int quantity = 2;
         int beamLength = length;
-        Item beams = new Item(materialMap.get(BEAM_ID).getDescription(), beamLength, quantity, "stk", "Remme i sider, sadles ned i stolper", 15);
+        Item beams = new Item(materialMap.get(BEAM_ID).getDescription(), beamLength, quantity,
+                materialMap.get(BEAM_ID).getUnit(), "Remme i sider, sadles ned i stolper",
+                materialMap.get(BEAM_ID).getPricePerUnit() * quantity);
+
          return beams;
     }
 
@@ -60,7 +64,11 @@ public class Calculator{
         // Rigtige beregninger skal laves her. Dvs, antal og længde
         int quantity = 2 * ( 2 + (int)(Math.floor((length - 130) / 310)));
         int postLength = 300;
-        Item posts = new Item(materialMap.get(POST_ID).getDescription(), postLength, quantity, "stk", "Stolper nedgraves 90cm i jord", 120);
+        Item posts = new Item(materialMap.get(POST_ID).getDescription(), postLength, quantity,
+                materialMap.get(POST_ID).getUnit(),
+                "Stolper nedgraves 90cm i jord",
+                materialMap.get(POST_ID).getPricePerUnit() * quantity);
+
         return posts;
     }
 
