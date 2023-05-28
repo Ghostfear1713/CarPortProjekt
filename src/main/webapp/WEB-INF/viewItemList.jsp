@@ -33,9 +33,9 @@
 
         </c:forEach>
 
-            <p>Samlet pris: ${requestScope.itemList.totalPrice}</p>
-
         </table>
+
+        <br><p>Samlet pris: ${requestScope.itemList.totalPrice},- kr</p>
 
     </jsp:body>
 </t:pagetemplate>
