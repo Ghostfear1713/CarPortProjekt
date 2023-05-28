@@ -50,6 +50,14 @@ class CalculatorTest {
 
     @Test
     void calcBeams() {
+        Item expectedCalcBeams = new Item();
+        expectedCalcBeams.setUnit("stk");
+        expectedCalcBeams.setQuantity(20);
+        expectedCalcBeams.setGuidanceDescription("Remme i sider, sadles ned i stolper");
+        expectedCalcBeams.setItemId(0);
+        expectedCalcBeams.setLength(600);
+        expectedCalcBeams.setPrice(300.0);
+        expectedCalcBeams.setMaterialDescription("");
 
     }
 
