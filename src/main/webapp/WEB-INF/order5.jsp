@@ -25,13 +25,13 @@
         2800 Lyngby<br>
         CVR-nr. 16314439<br>
 
-        <br>//Dato:
+        <br>
         ${requestScope.orderdate}
         <br>
         <br><h1>Ordrebekræftlese</h1>
 
         <div class="col-md-6">
-            <br><h5 class="mb-4">Info: Evt carport detaljer indsættes her evt. via session scope? </h5>
+            <br><h5 class="mb-4">Info:</h5>
             <ul class="list-unstyled">
                 <li><strong>Navn:</strong> ${sessionScope.orderForm.navn}</li>
                 <li><strong>Adresse:</strong> ${sessionScope.orderForm.adresse}</li>
