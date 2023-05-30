@@ -61,18 +61,5 @@
 </head>
 <body>
 
-
-<!-- Setup for et login på en hjemmeside -->
-
-<h1>Velkommen til verdens bedste hjemmeside!</h1>
-<form action="signup" method="post">
-    Username: <input type="text" name= "username"> <br><br>
-    Password: <input type="password" name= "password"> <br><br>
-    Confirm Password: <input type="password" name= "confirmpassword"> <br><br>
-    <input class type="submit" value="Sign up"/>
-
-
-</form>
-
 </body>
 </html>
