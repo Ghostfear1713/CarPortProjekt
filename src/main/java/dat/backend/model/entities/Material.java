@@ -15,6 +15,7 @@ public class Material {
         this.pricePerUnit = pricePerUnit;
     }
 
+    //bruges til at lave et objekt men vil sætte værdier senere hen
     public Material(){
 
     }
