@@ -27,7 +27,6 @@ public class OrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-
         int step = 1;
         try {
             step = Integer.parseInt(request.getParameter("step"));
@@ -105,7 +104,11 @@ public class OrderServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             doGet(request, response);
         } catch (DatabaseException e) {
-            throw new RuntimeException(e);
+
+            //fejl meddelse tilføjet efter eksamen, sådan skulle den se ud.
+            request.setAttribute("errormessage", "An error occurred while processing the request.");
+
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
 
         session.setAttribute("orderForm", orderForm);
