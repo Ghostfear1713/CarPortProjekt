@@ -7,7 +7,6 @@ import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.UserFacade;
 import dat.backend.model.persistence.OrderFacade;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -27,9 +26,10 @@ public class OrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-
         int step = 1;
         try {
+            //get current step fra request, gemmes i session
+            //-> getPageAndForward for at vise den rette side
             step = Integer.parseInt(request.getParameter("step"));
         } catch (NumberFormatException e)
         {
@@ -48,6 +48,7 @@ public class OrderServlet extends HttpServlet {
         OrderForm orderForm;
         HttpSession session = request.getSession();
         int step = Integer.parseInt(request.getParameter("step"));
+
 
         if (session.getAttribute("orderForm") == null)
         {
